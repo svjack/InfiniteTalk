@@ -1,3 +1,50 @@
+```bash
+git clone -b comfyui https://github.com/MeiGen-AI/InfiniteTalk.git
+
+git clone https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite
+
+git clone https://github.com/kijai/ComfyUI-KJNodes
+
+git clone https://github.com/christian-byrne/audio-separation-nodes-comfyui
+
+featurize dataset download c926e468-854b-4b17-aacf-f543d25c748f
+
+unzip wan_loras.zip 
+
+cp wan_loras/* ComfyUI/models/loras 
+
+huggingface-cli download Kijai/WanVideo_comfy Wan2_1-I2V-14B-480P_fp8_e4m3fn.safetensors --local-dir="."
+
+huggingface-cli download Kijai/WanVideo_comfy umt5-xxl-enc-bf16.safetensors --local-dir="."
+
+huggingface-cli download Comfy-Org/Wan_2.1_ComfyUI_repackaged split_files/vae/wan_2.1_vae.safetensors --local-dir="."
+
+wget https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/resolve/main/split_files/clip_vision/clip_vision_h.safetensors
+
+huggingface-cli download MeiGen-AI/InfiniteTalk comfyui/infinitetalk_single.safetensors --local-dir="."
+
+cp infinitetalk_single.safetensors ComfyUI/models/diffusion_models 
+
+cp clip_vision_h.safetensors ComfyUI/models/clip_vision 
+
+huggingface-cli download TencentGameMate/chinese-wav2vec2-base --local-dir="chinese-wav2vec2-base"
+
+mkdir -p /home/featurize/ComfyUI/models/transformers/TencentGameMate/chinese-wav2vec2-base
+cp -r chinese-wav2vec2-base/* /home/featurize/ComfyUI/models/transformers/TencentGameMate/chinese-wav2vec2-base
+
+comfy launch -- --listen 0.0.0.0
+
+ 
+git clone https://github.com/chenpipi0807/ComfyUI-Index-TTS
+
+mkdir -p /home/featurize/ComfyUI/models/IndexTTS-1.5
+
+huggingface-cli download IndexTeam/IndexTTS-1.5 --local-dir="IndexTTS-1.5"
+
+cp -r IndexTTS-1.5/* /home/featurize/ComfyUI/models/IndexTTS-1.5
+
+```
+
 <div align="center">
 
 <p align="center">
